@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+.Mainpage {
+  //   height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  //   background-color: blue;
+  flex-direction: column;
+}
+.Togglediv {
+  margin-top: 90px;
+  height: 7%;
+  width: 550px;
+  //   background-color: aliceblue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.SelectDiv {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  color: #fff;
+  font-size: larger;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border-radius: 134px;
+  transition: all 1s ease-in-out;
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+}
+.Pagesdiv {
+  //   height: 1220px;
+  background-color: red;
+}
+@mixin glasseffect {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+}
+@mixin display-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin display-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@mixin displayFlex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+body {
+  background: #161623;
+}
+
+.container {
+  margin-top: 90px;
+
+  @include display-grid();
+  //   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  // @include displayFlex(center, center, column);
+  // flex-wrap: wrap;
+  //   padding: 1em;
+
+  .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 1em;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    @include displayFlex(center, center, column);
+    backdrop-filter: blur(40px);
+
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+
+    .content {
+      position: relative;
+      @include displayFlex(center, center, column);
+      opacity: 0.5;
+      transition: 0.5s;
+
+      .img {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 10px solid rgba(0, 0, 0, 0.25);
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .cardContent {
+        h3 {
+          color: #fff;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: 500;
+          font-size: 18px;
+          text-align: center;
+          margin: 20px 0 10px;
+          line-height: 1.1em;
+
+          span {
+            font-size: 12px;
+            font-weight: 300;
+            text-transform: initial;
+          }
+        }
+      }
+    }
+
+    .sci {
+      position: absolute;
+      bottom: 50px;
+      @include displayFlex(center, center, row);
+
+      li {
+        list-style: none;
+        margin: 0 10px;
+        transform: translateY(40px);
+        opacity: 0;
+        transition: 0.5s;
+        a {
+          text-decoration: none;
+          color: #ffffff;
+          font-size: 22px;
+          font-weight: 300;
+          text-transform: initial;
+        }
+      }
+    }
+
+    &:hover .content {
+      opacity: 1;
+      transform: translateY(-20px);
+    }
+
+    &:hover .sci li {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+}
+.userInfo_page {
+  height: 100vh;
+  //   color: white;
+  @include displayFlex(center, center, column);
+  .userpic {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.25);
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .user_info {
+    margin-top: 25px;
+    height: 60%;
+    width: 60%;
+    @include glasseffect();
+    @include displayFlex(space-around, center, column);
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 18px;
+    text-align: center;
+
+    .user_name {
+      text-transform: uppercase;
+      @include glasseffect();
+      height: 70px;
+      @include display-flex();
+      line-height: 1.1em;
+      width: 45%;
+    }
+    .created_date {
+      height: 70px;
+      width: 55%;
+      @include glasseffect();
+      @include display-flex();
+    }
+    .user_about {
+      @include glasseffect();
+      @include display-flex();
+      padding: 1em;
+      width: 80%;
+    }
+    .user_email {
+      @include glasseffect();
+      @include display-flex();
+
+      font-size: 12px;
+      font-weight: 300;
+      text-transform: initial;
+      height: 40px;
+      width: 45%;
+    }
+  }
+}
+.post_container {
+  margin-top: 40px;
+
+  @include glasseffect();
+  // @include display-grid()
+
+  .post_card {
+    width: 800px;
+    height: 600px;
+    margin-top: 30px;
+    margin-left: 25px;
+    margin-right: 25px;
+    // margin: 1em;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    @include displayFlex(space-evenly, center, column);
+    .post_img {
+      // width: 50%;
+      img {
+        border-radius: 20px;
+        height: 100%;
+        width: 350px;
+      }
+    }
+    .post_info {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.1em;
+      width: 100%;
+      margin-left: 20px;
+    }
+    //   width: 50%;
+    //   @include displayFlex(center, center, column);
+    .post_title {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 18px;
+      text-align: center;
+      line-height: 1.1em;
+      width: 80%;
+      margin-left: 20px;
+      a {
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+    //
+  }
+}
+.post_des {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+.add_new_post {
+  @include glasseffect();
+  @include display-flex();
+  width: 160px;
+  height: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.1em;
+  a {
+    list-style: none;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.newpost_container {
+  // height: 100vh;
+  @include displayFlex(center, center, column);
+  height: 500px;
+  .newpost_head {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+    a {
+      margin-left: 30px;
+      color: #fff;
+    }
+  }
+
+  button {
+    padding: 1.6em;
+    padding-left: 90px;
+    padding-right: 90px;
+    @include glasseffect();
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+.input_div {
+  @include displayFlex(space-between, center, column);
+  margin-top: 60px;
+  label {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 300;
+    text-transform: initial;
+  }
+  input {
+    @include glasseffect();
+    margin-bottom: 20px;
+    padding: 1em;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: 0.3px lightgray solid;
+    background: transparent;
+    color: #fff;
+    line-height: 2em;
+    font-size: 16px;
+  }
+}
